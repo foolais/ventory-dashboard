@@ -1,11 +1,11 @@
-import { goodsItems } from "@/data/dummy-goods";
+import { goodsItems } from "@/data/dummyGoods";
 import { IGoodsItem } from "@/types/type";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface GoodsState {
   items: IGoodsItem[];
-  addItem: (item: IGoodsItem) => void;
+  addGoods: (item: IGoodsItem) => void;
   updateStock: (id: string, type: "add" | "minus") => void;
 }
 
@@ -13,7 +13,7 @@ export const useGoodsStore = create<GoodsState>()(
   persist(
     (set, get) => ({
       items: goodsItems,
-      addItem: (item: IGoodsItem) => {
+      addGoods: (item: IGoodsItem) => {
         const currentItems = get().items;
         set({ items: [...currentItems, item] });
       },
