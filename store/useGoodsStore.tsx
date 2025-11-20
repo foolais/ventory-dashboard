@@ -52,7 +52,7 @@ export const useGoodsStore = create<GoodsState>()(
             return {
               ...item,
               stock: updatedStock,
-              date: new Date(),
+              date: new Date().toISOString(),
             };
           });
 

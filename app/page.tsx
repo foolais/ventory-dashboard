@@ -3,6 +3,10 @@ import GoodsTable from "@/components/goodsTable";
 import SearchGoods from "@/components/searchGoods";
 import SelectSortingButton from "@/components/selectSortingBtn";
 
+export const metadata = {
+  title: "Ventory",
+};
+
 export default function Home() {
   return (
     <div className="w-dvw h-dvh container mx-auto py-8 px-4">
