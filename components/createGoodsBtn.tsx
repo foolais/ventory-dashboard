@@ -55,7 +55,8 @@ const CreateGoodsButton = () => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="secondary" className="cursor-pointer">
-          <span className="-mb-1">Tambah Barang Baru</span>
+          <span className="-mb-1 block sm:hidden">Tambah</span>
+          <span className="-mb-1 hidden sm:block">Tambah Barang Baru</span>
           <Plus />
         </Button>
       </DialogTrigger>

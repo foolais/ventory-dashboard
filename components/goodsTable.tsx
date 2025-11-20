@@ -10,14 +10,44 @@ import {
 } from "./ui/table";
 import moment from "moment";
 import { Button } from "./ui/button";
-import { Minus, Plus } from "lucide-react";
+import {
+  ArrowDownWideNarrow,
+  ArrowUpWideNarrow,
+  Minus,
+  Plus,
+} from "lucide-react";
 import { useGoodsStore } from "@/store/useGoodsStore";
+import { useState } from "react";
 
 const GoodsTable = () => {
-  const { items, updateStock, search } = useGoodsStore();
+  const { items, updateStock, search, sortBy, setSortBy } = useGoodsStore();
+  const [sortState, setSortState] = useState({
+    name: "asc",
+    stock: "asc",
+    date: "asc",
+  });
 
   const filteredItems = items.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const sortedItems = [...filteredItems].sort((a, b) => {
+    switch (sortBy) {
+      case "name-asc":
+        return a.name.localeCompare(b.name);
+      case "name-desc":
+        return b.name.localeCompare(a.name);
+      case "stock-asc":
+        return a.stock - b.stock;
+      case "stock-desc":
+        return b.stock - a.stock;
+      case "date-asc":
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      case "date-desc":
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      default:
+        return 0;
+    }
   });
 
   const onUpdateStock = (id: string, type: "add" | "minus") => {
@@ -30,12 +60,12 @@ const GoodsTable = () => {
         <TableRow>
           <TableHead className="w-[100px] text-center">No</TableHead>
           <TableHead>Nama</TableHead>
-          <TableHead className="text-center">Stok</TableHead>
-          <TableHead className="w-[300px]">Tanggal</TableHead>
+          <TableHead className="text-center">Stok </TableHead>
+          <TableHead>Tanggal</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {filteredItems.map((item, index) => (
+        {sortedItems.map((item, index) => (
           <TableRow key={item.id}>
             <TableCell className="text-center">{index + 1}</TableCell>
             <TableCell>{item.name}</TableCell>
