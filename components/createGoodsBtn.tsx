@@ -39,7 +39,7 @@ const CreateGoodsButton = () => {
           ...data,
           id: crypto.randomUUID(),
           stock: +data.stock,
-          date: new Date(),
+          date: new Date().toISOString(),
         };
 
         addGoods(payload);
