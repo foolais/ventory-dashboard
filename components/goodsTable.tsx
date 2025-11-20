@@ -14,7 +14,11 @@ import { Minus, Plus } from "lucide-react";
 import { useGoodsStore } from "@/store/useGoodsStore";
 
 const GoodsTable = () => {
-  const { items, updateStock } = useGoodsStore();
+  const { items, updateStock, search } = useGoodsStore();
+
+  const filteredItems = items.filter((item) => {
+    return item.name.toLowerCase().includes(search.toLowerCase());
+  });
 
   const onUpdateStock = (id: string, type: "add" | "minus") => {
     updateStock(id, type);
@@ -31,7 +35,7 @@ const GoodsTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {items.map((item, index) => (
+        {filteredItems.map((item, index) => (
           <TableRow key={item.id}>
             <TableCell className="text-center">{index + 1}</TableCell>
             <TableCell>{item.name}</TableCell>

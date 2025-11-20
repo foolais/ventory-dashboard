@@ -5,6 +5,10 @@ import { persist } from "zustand/middleware";
 
 interface GoodsState {
   items: IGoodsItem[];
+
+  search: string;
+
+  setSearch: (query: string) => void;
   addGoods: (item: IGoodsItem) => void;
   updateStock: (id: string, type: "add" | "minus") => void;
 }
@@ -13,6 +17,10 @@ export const useGoodsStore = create<GoodsState>()(
   persist(
     (set, get) => ({
       items: goodsItems,
+      search: "",
+      setSearch: (query: string) => set({ search: query }),
+
+      // CRUD ACTION
       addGoods: (item: IGoodsItem) => {
         const currentItems = get().items;
         set({ items: [...currentItems, item] });
