@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ventory Dashboard
 
-## Getting Started
+Inventory Management Application built with Next.js
 
-First, run the development server:
+## 🚀Features
+
+- Table to display a list of items
+- Add New Item Form
+- Add and Remove Stock Items
+- Table Pagination
+- Item Search
+- Table Data Sorting
+
+## 🎮Tech Stack
+
+This project is built using modern and scalable frontend technologies:
+
+- **Next.js** – React framework for building fast, production-grade applications with App Router.
+- **TypeScript** – Strongly typed JavaScript for safer and more maintainable code.
+- **Tailwind CSS** – Utility-first CSS framework for rapid UI development.
+- **shadcn/ui** – Reusable and customizable UI components built on top of Radix UI.
+- **Zustand** – Minimal, scalable state management for React applications.
+- **React Hook Form** – Lightweight and performant form handling.
+- **Zod** – Schema validation for form handling and data safety.
+
+## 🧑‍💻How To Install
+
+Clone Project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/foolais/ventory-dashboard.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the Project Directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd ventory-dashboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install Dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run the Development Server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📋Notes
 
-## Deploy on Vercel
+If you make changes to `dummyGoods.ts` and you already have an existing `goods-storage` entry in your browser's `localStorage`, be sure to **delete the `goods-storage` item** first.  
+This prevents old cached data from causing inconsistencies in the app.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐Demo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://ventory-dashboard.vercel.app/
+
+## 🥷Authors
+
+- [@foolais](https://www.github.com/foolais)
