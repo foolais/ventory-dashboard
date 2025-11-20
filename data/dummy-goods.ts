@@ -50,7 +50,7 @@ export const goodsItems = [
   {
     id: "9",
     name: "Sample Item 9",
-    stock: 32,
+    stock: 5,
     date: new Date(),
   },
   {
