@@ -13,9 +13,12 @@ interface GoodsState {
     | "stock-desc"
     | "date-asc"
     | "date-desc";
+  page: number;
+  pageSize: number;
   // FILTER ACTION
   setSearch: (query: string) => void;
   setSortBy: (sortBy: GoodsState["sortBy"]) => void;
+  setPage: (page: number) => void;
   // CRUD ACTION
   addGoods: (item: IGoodsItem) => void;
   updateStock: (id: string, type: "add" | "minus") => void;
@@ -27,9 +30,12 @@ export const useGoodsStore = create<GoodsState>()(
       items: goodsItems,
       search: "",
       sortBy: "date-asc",
+      page: 1,
+      pageSize: 10,
       // FILTER ACTION
       setSearch: (query) => set({ search: query }),
       setSortBy: (value) => set({ sortBy: value }),
+      setPage: (page) => set({ page }),
       // CRUD ACTION
       addGoods: (item: IGoodsItem) => {
         const currentItems = get().items;
